@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import PropTypes from "prop-types"
+import { Container } from "@material-ui/core"
 
+//components
+import Game from "./components/pages/game/game"
 
 class App extends Component {
-
-
+   
   render() {
-
     return (
-      <section className="game">
-        <header className="game-header">
-          <h1 className="game-title">Challenge Minesweeper</h1>
-        </header>       
-      </section>
+      <Container>
+        <Game stateGeneral={this.props.generalState}/>
+      </Container>
     );
   }
 }
 
 App.propTypes = {
-  
+  generalState: PropTypes.objectOf(PropTypes.any).isRequired,
 }
 
-const mapStateToProps = () => ({
-  
+const mapStateToProps = ({ game }) => ({
+  generalState : game
 })
 
-const mapDispatchToProps = () => ({
-
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

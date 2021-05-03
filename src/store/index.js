@@ -1,8 +1,8 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit"
-import general from "./general/generalSlice"
+import game from "./game/gameSlice"
 
 const reducer = {
-  general,
+  game,
 }
 
 const middleware = [
